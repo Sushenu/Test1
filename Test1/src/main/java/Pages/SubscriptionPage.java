@@ -25,6 +25,18 @@ public class SubscriptionPage extends Base {
 	@FindBy(xpath = "(//strong[@class=\"plan-title\"])[3]")public WebElement KSAPremium;
 	@FindBy(xpath = "(//strong[@class=\"plan-title\"])[3]")public WebElement KuwaitPremium;
 	@FindBy(xpath = "(//strong[@class=\"plan-title\"])[3]")public WebElement BahrainPremium;
+	@FindBy(xpath = "//div[@class=\"price\"]")public WebElement KSALITEPrice;
+	@FindBy(xpath = "(//div[@class=\"price\"])[2]")public WebElement KSAClassicPrice;
+	@FindBy(xpath = "(//div[@class=\"price\"])[3]")public WebElement KSAPremiumPrice;
+	
+	@FindBy(xpath = "//div[@class=\"price\"]")public WebElement KuwaitLITEPrice;
+	@FindBy(xpath = "(//div[@class=\"price\"])[2]")public WebElement KuwaitClassicPrice;
+	@FindBy(xpath = "(//div[@class=\"price\"])[3]")public WebElement KuwaitPremiumPrice;
+	
+	@FindBy(xpath = "//div[@class=\"price\"]")public WebElement BahrainLITEPrice;
+	@FindBy(xpath = "(//div[@class=\"price\"])[2]")public WebElement BahrainClassicPrice;
+	@FindBy(xpath = "(//div[@class=\"price\"])[3]")public WebElement BahrainPremiumPrice;
+	
 
 	public void chooseCountry() throws InterruptedException {
 		chooseCountry.click();
@@ -58,6 +70,21 @@ public class SubscriptionPage extends Base {
 		Assert.assertEquals("CLASSIC", BahrainClassicdet);
 		String BahrainPremiumdet = BahrainPremium.getText();Thread.sleep(3000);
 		Assert.assertEquals("PREMIUM", BahrainPremiumdet);
+	}
+	public void assertPriceKSA() throws InterruptedException {	
+		String KSALITEPriceP = KSALITEPrice.getText();Thread.sleep(3000);Assert.assertEquals("Starting from: 15 SAR/month", KSALITEPriceP);
+		String KSAClassicPriceP = KSAClassicPrice.getText();Thread.sleep(3000);Assert.assertEquals("Starting from: 25 SAR/month", KSAClassicPriceP);
+		String KSAPremiumPriceP = KSAPremiumPrice.getText();Thread.sleep(3000);Assert.assertEquals("Starting from: 60 SAR/month", KSAPremiumPriceP);
+	}
+	public void assertPriceKuwait() throws InterruptedException {	
+		String KuwaitLITEPriceP = KuwaitLITEPrice.getText();Thread.sleep(3000);Assert.assertEquals("1.2 KWD/month", KuwaitLITEPriceP);
+		String KuwaitClassicPriceP = KuwaitClassicPrice.getText();Thread.sleep(3000);Assert.assertEquals("2.5 KWD/month", KuwaitClassicPriceP);
+		String KuwaitPremiumPriceP = KuwaitPremiumPrice.getText();Thread.sleep(3000);Assert.assertEquals("4.8 KWD/month", KuwaitPremiumPriceP);
+	}
+	public void assertPriceBahrain() throws InterruptedException {	
+		String BahrainLITEPriceP = BahrainLITEPrice.getText();Thread.sleep(3000);Assert.assertEquals("2 BHD/month", BahrainLITEPriceP);
+		String BahrainClassicPriceP = BahrainClassicPrice.getText();Thread.sleep(3000);Assert.assertEquals("3 BHD/month", BahrainClassicPriceP);
+		String BahrainPremiumPriceP = BahrainPremiumPrice.getText();Thread.sleep(3000);Assert.assertEquals("6 BHD/month", BahrainPremiumPriceP);
 	}
 
 }
