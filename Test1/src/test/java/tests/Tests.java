@@ -33,4 +33,28 @@ public class Tests extends Base {
 		sub.navigateToCountry(sub.chooseKuwait);
 		sub.assertPlansKuwait();
 	}
+	@Test
+	public static void validatePriceAndCurrencyKSA() throws InterruptedException {
+		launchUrl(Environment.url);
+		SubscriptionPage sub = new SubscriptionPage();
+		sub.chooseCountry();
+		sub.navigateToCountry(sub.chooseKSA);
+		sub.assertPriceKSA();
+	}
+	@Test
+	public static void validatePriceAndCurrencyKuwait() throws InterruptedException {
+		launchUrl(Environment.url);
+		SubscriptionPage sub = new SubscriptionPage();
+		sub.chooseCountry();
+		sub.navigateToCountry(sub.chooseKuwait);
+		sub.assertPriceKuwait();
+	}
+	@Test
+	public static void validatePriceAndCurrencyBahrain() throws InterruptedException {
+		launchUrl(Environment.url);
+		SubscriptionPage sub = new SubscriptionPage();
+		sub.chooseCountry();
+		sub.navigateToCountry(sub.chooseBahrain);
+		sub.assertPriceBahrain();
+	}
 }
